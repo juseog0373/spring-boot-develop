@@ -17,19 +17,19 @@ import java.util.List;
 public class BlogApiController {
 
     private final BlogService blogService;
+
     @PostMapping("/api/articles") // method가 post형식의 /api/aritcles/ 요청이 들어오면 실행
     public ResponseEntity<Article> addArticle(@RequestBody AddArticleRequest request) {
         Article savedArticle = blogService.save(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedArticle);
     }
 
-    @GetMapping("api/articles")
+    @GetMapping("/api/articles")
     public ResponseEntity<List<ArticleResponse>> findAllArticles() {
         List<ArticleResponse> articles = blogService.findAll().stream().map(ArticleResponse::new).toList();
-
         return ResponseEntity.ok().body(articles);
     }
-    @GetMapping("api/articles/{id}")
+    @GetMapping("/api/articles/{id}")
     public ResponseEntity<ArticleResponse> findArticle(@PathVariable long id) {
         Article article = blogService.findById(id);
         return ResponseEntity.ok().body(new ArticleResponse(article));
