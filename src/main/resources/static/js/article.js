@@ -31,10 +31,10 @@ if (modifyButton) {
                 content: document.getElementById('content').value
             })
         })
-            .then(() => {
-                alert('수정이 완료되었습니다.');
-                location.replace(`/articles/${id}`);
-            });
+        .then(() => {
+            alert('수정이 완료되었습니다.');
+            location.replace(`/articles/${id}`);
+        });
     });
 }
 
