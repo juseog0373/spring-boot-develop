@@ -16,11 +16,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class UserApiController {
 
     private final UserService userService;
+
     @PostMapping("/user")
     public String signup(AddUserRequest request) {
         userService.save(request);
         return "redirect:/login";
     }
+
     @GetMapping("/logout")
     public String logout(HttpServletRequest request, HttpServletResponse response) {
         // 로그아웃 담당 핸들러
