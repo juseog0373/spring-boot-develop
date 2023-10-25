@@ -13,6 +13,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @Service
 public class BlogService {
+
     private final BlogRepository blogRepository;
 
     public Article save(AddArticleRequest request) {

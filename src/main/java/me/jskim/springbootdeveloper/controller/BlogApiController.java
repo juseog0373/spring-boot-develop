@@ -12,11 +12,13 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
 @RequiredArgsConstructor
 @RestController  //http 응답으로 객체 데이터를 json 형태로 반환
 public class BlogApiController {
 
     private final BlogService blogService;
+
 
     @PostMapping("/api/articles") // method가 post형식의 /api/aritcles/ 요청이 들어오면 실행
     public ResponseEntity<Article> addArticle(@RequestBody AddArticleRequest request) {
